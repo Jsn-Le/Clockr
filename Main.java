@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import javax.swing.*;
 
 public class Main {
@@ -8,6 +9,18 @@ public class Main {
             JFrame frame = new JFrame("Clockr");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(500,1000);
+
+            JPanel recordsPanel = new JPanel();
+            JPanel controlPanel = new JPanel();
+            JTextField textfield = new JTextField(25);
+            JButton clockInButton = new JButton("Clock In");
+            JButton clockOutButton = new JButton("Clock Out");
+
+            frame.add(recordsPanel, BorderLayout.CENTER);
+            frame.add(controlPanel, BorderLayout.SOUTH);
+            controlPanel.add(textfield);
+            controlPanel.add(clockInButton);
+            controlPanel.add(clockOutButton);
 
             frame.setVisible(true);
 
