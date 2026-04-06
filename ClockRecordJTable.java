@@ -1,9 +1,10 @@
-
+import java.time.format.DateTimeFormatter;
 import javax.swing.table.AbstractTableModel;
 
 public class ClockRecordJTable extends AbstractTableModel {
 
     private final ClockRecordManager clockRecordManager;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public ClockRecordJTable(ClockRecordManager clockRecordManager) {
         this.clockRecordManager = clockRecordManager;
@@ -35,8 +36,10 @@ public class ClockRecordJTable extends AbstractTableModel {
 
         return switch (columnIndex) {
             case 0 -> record.getEmployee();
-            case 1 -> record.getClockIn();
-            case 2 -> record.getClockOut();
+            case 1 -> record.getClockIn().format(formatter);
+            case 2 -> record.getClockOut() != null
+                        ? record.getClockOut().format(formatter)
+                        : "";
             default -> null;
         };
     }
