@@ -34,10 +34,9 @@ public class ClockRecordJTable extends AbstractTableModel {
         ClockRecordModel record = clockRecordManager.getAllRecords().get(rowIndex);
 
         return switch (columnIndex) {
-            case 0 -> record.getId();
-            case 1 -> record.getEmployee();
-            case 2 -> record.getClockIn();
-            case 3 -> record.getClockOut();
+            case 0 -> record.getEmployee();
+            case 1 -> record.getClockIn();
+            case 2 -> record.getClockOut();
             default -> null;
         };
     }
