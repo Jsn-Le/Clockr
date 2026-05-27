@@ -43,5 +43,9 @@ public class ClockRecordJTable extends AbstractTableModel {
             default -> null;
         };
     }
+
+    public ClockRecordModel getRecordAt(int rowIndex) {
+        return clockRecordManager.getAllRecords().get(rowIndex);
+    }
     
 }

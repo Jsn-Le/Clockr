@@ -36,6 +36,14 @@ public class ClockRecordManager {
         return true;
     }
 
+    public boolean deleteAllRecords() {
+        if (records == null) {
+            return false;
+        }
+        records.clear();
+        return true;
+    }
+
     public ClockRecordModel setClockOutById (int id, LocalDateTime clockOut) {
         ClockRecordModel record = getRecordById(id);
         if (record == null) {

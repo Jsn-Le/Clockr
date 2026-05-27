@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.time.*;
 import javax.swing.*;
 
 public class Main {
@@ -41,6 +42,20 @@ public class Main {
                 clockRecordJTable.fireTableDataChanged();
 
                 textfield.setText("");
+            });
+
+            clockOutButton.addActionListener(e -> {
+                int selectedRow = jTable.getSelectedRow();
+                if (selectedRow == -1) {
+                    return;
+                }
+                ClockRecordModel record = clockRecordJTable.getRecordAt(selectedRow);
+
+                int id = record.getId();
+                LocalDateTime clockOut = LocalDateTime.now();
+
+                clockRecordManager.setClockOutById(id, clockOut);
+                clockRecordJTable.fireTableDataChanged();
             });
 
             frame.setVisible(true);
